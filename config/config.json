@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "postgres",
-    "password": "12345678",
+    "password": "12345678p",
     "database": "postgres",
     "host": "localhost",
     "port": 5432,
@@ -10,17 +10,22 @@
   "test": {
     "username": "postgres",
     "password": "12345678",
-    "database": "postgres",
+    "database": "postgress",
     "host": "localhost",
     "port": 5432,
     "dialect": "postgres"
-  },
-  "production": {
-    "username": "postgres",
-    "password": "12345678",
-    "database": "postgres",
-    "host": "localhost",
+  },  "production": {
+    "username": "testingdb_lch7_user",
+    "password": "Qaxib0gZBwEKzQLa0pSPRoYcxoTUnOtU",
+    "database": "testingdb_lch7",
+    "host": "dpg-d0opss6mcj7s73degpq0-a.oregon-postgres.render.com",
     "port": 5432,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }
