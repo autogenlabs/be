@@ -9,6 +9,7 @@
   "start:dev": "pm2 start --env dev",
   "start:test": "pm2 start --env test",
   "start:prod": "pm2 start --env prod",
+  "dev:production": "nodemon app.js --env production",
   "pm2:list": "pm2 list",
   "pm2:logs": "pm2 logs",
   "pm2:stop": "pm2 delete all",
