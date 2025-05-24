@@ -16,10 +16,10 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "postgres",
-    "password": "12345678",
+    "username": "testingdb_lch7_user",
+    "password": "Qaxib0gZBwEKzQLa0pSPRoYcxoTUnOtU",
     "database": "postgres",
-    "host": "localhost",
+    "host": "locadpg-d0opss6mcj7s73degpq0-alhost",
     "port": 5432,
     "dialect": "postgres"
   }

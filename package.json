@@ -2,17 +2,18 @@
   "name": "fms_backend",
   "version": "1.0.0",
   "main": "app.js",
-  "scripts": {
-    "_prepare": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
-    "dev": "nodemon app.js --env dev",
-    "start:dev": "pm2 start --env dev",
-    "start:test": "pm2 start --env test",
-    "start:prod": "pm2 start --env prod",
-    "pm2:list": "pm2 list",
-    "pm2:logs": "pm2 logs",
-    "pm2:stop": "pm2 delete all",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+"scripts": {
+  "_prepare": "npx sequelize-cli db:create || echo Database already exists && npx sequelize-cli db:migrate",
+  "build": "npm run _prepare",
+  "dev": "nodemon app.js --env dev",
+  "start:dev": "pm2 start --env dev",
+  "start:test": "pm2 start --env test",
+  "start:prod": "pm2 start --env prod",
+  "pm2:list": "pm2 list",
+  "pm2:logs": "pm2 logs",
+  "pm2:stop": "pm2 delete all",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
