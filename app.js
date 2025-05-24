@@ -21,9 +21,21 @@ app.use(xss());
 app.use(express.json())
 app.use(express.urlencoded());
 
+const allowedOrigins = [
+  'https://frontend-wheat-ten-83.vercel.app',
+  // Add more allowed origins if needed
+];
 const corsOptions = {
-  origin: '*', // your frontend domain
-  credentials: true, // allow cookies/auth headers
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
   optionsSuccessStatus: 200
 };
 app.options('*', cors(corsOptions));
