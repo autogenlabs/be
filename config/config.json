@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "12345678",
-    "database": "postgres",
+    "database": "postgresss",
     "host": "localhost",
     "port": 5432,
     "dialect": "postgres"
@@ -10,7 +10,7 @@
   "test": {
     "username": "postgres",
     "password": "12345678",
-    "database": "postgres",
+    "database": "postgress",
     "host": "localhost",
     "port": 5432,
     "dialect": "postgres"
@@ -18,7 +18,7 @@
   "production": {
     "username": "testingdb_lch7_user",
     "password": "Qaxib0gZBwEKzQLa0pSPRoYcxoTUnOtU",
-    "database": "postgres",
+    "database": "testingdb_lch7",
     "host": "locadpg-d0opss6mcj7s73degpq0-alhost",
     "port": 5432,
     "dialect": "postgres"
