@@ -18,12 +18,21 @@ module.exports = (sequelize, DataTypes) => {
   }
   user.init({
     name: DataTypes.STRING,
-    userId: DataTypes.STRING,
+    userId: {
+      type: DataTypes.STRING,
+      field: 'userid'
+    },
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     team: DataTypes.STRING,
-    lineManagers: DataTypes.STRING,
-    blendedRate: DataTypes.STRING,
+    lineManagers: {
+      type: DataTypes.STRING,
+      field: 'linemanagers'
+    },
+    blendedRate: {
+      type: DataTypes.STRING,
+      field: 'blendedrate'
+    },
     deleted: DataTypes.INTEGER,
     active: DataTypes.INTEGER,
     token: DataTypes.STRING,
@@ -35,10 +44,13 @@ module.exports = (sequelize, DataTypes) => {
     isDeleted: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
+      field: 'isdeleted'
     },
   }, {
     sequelize,
     modelName: 'user',
+    tableName: 'users',
+    underscored: false,
   });
 
   user.isEmailTaken = async (email, excludeUserId) => {
