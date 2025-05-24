@@ -46,11 +46,20 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: false,
       field: 'isdeleted'
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      field: 'createdat'
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      field: 'updatedat'
+    }
   }, {
     sequelize,
     modelName: 'user',
     tableName: 'users',
     underscored: false,
+    timestamps: true,
   });
 
   user.isEmailTaken = async (email, excludeUserId) => {
