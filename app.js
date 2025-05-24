@@ -18,8 +18,8 @@ const https = require("https");
 app.use(helmet());
 app.use(xss());
 
-app.use(express.json())
-app.use(express.urlencoded());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const allowedOrigins = [
   'https://frontend-wheat-ten-83.vercel.app',
@@ -38,8 +38,8 @@ const corsOptions = {
   credentials: true,
   optionsSuccessStatus: 200
 };
-app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 
 db.sequelize.sync()
