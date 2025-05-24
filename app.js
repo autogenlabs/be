@@ -23,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const allowedOrigins = [
   'https://frontend-wheat-ten-83.vercel.app',
+  'https://frontend-cld2i17uh-akarshs-projects-f5572d04.vercel.app',
   // Add more allowed origins if needed
 ];
 const corsOptions = {
