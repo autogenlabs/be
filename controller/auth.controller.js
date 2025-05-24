@@ -12,9 +12,11 @@ function generateOTP() {
 }
 
 const login = catchAsync(async (req, res) => {
+  console.log(req.body, "===req.bodyyyyyyyyyyyyyyyy");
   const { email, password } = req.body;
   const user = await authService.loginUserWithEmailAndPassword(email, password);
-  
+    console.log(user, "===req.tttttttttttttttttttttttttt");
+
   if (!user) {
     return res.status(httpStatus.UNAUTHORIZED).send({
       message: "Invalid credentials",
@@ -57,16 +59,21 @@ const login = catchAsync(async (req, res) => {
 
 const verifyOtp = catchAsync(async (req, res) => {
   const { email, otp } = req.body;
+  console.log(req.body, "===req.bodyyyyyyyyyyyyyyyy");
   const user = await userServices.getUserByEmail(email);
+  console.log(user, "===userrrrrrrrrrrrrrrrrrrrrrrr");
 
   if (!user) {
     return res.status(httpStatus.UNAUTHORIZED).send({ message: "Invalid email" });
   }
+console.log(user.otp, "===user.otp");
 
   // Check if OTP matches and if it's not expired
   if (user.otp !== otp) {
     return res.status(httpStatus.UNAUTHORIZED).send({ message: "Invalid or expired OTP" });
   }
+
+  console.log("OTP matched, proceeding with login");
 
   // OTP is valid, generate auth tokens
   const tokens = await tokenService.generateAuthTokens(user);
